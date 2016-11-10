@@ -41,3 +41,15 @@ object ex2 {
 		else println("no")
 	}
 }
+
+object ex3 {
+  def countChange(money: Int, coins: List[Int]) : Int = {
+    if (money == 0) 1
+    else if (money < 0 || coins.isEmpty) 0
+    else countChange(money, coins.tail) + countChange(money - coins.head, coins)
+  }
+  
+  def main(args: Array[String]) : Unit = {
+    println(ex3.countChange(4, List(1, 2)))
+  }
+}
